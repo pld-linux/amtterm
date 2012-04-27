@@ -2,11 +2,12 @@
 Summary:	Intel AMT serial-over-lan (sol) client
 Name:		amtterm
 Version:	1.3
-Release:	1
+Release:	2
 License:	GPL v2
 Group:		Applications/Networking
 Source0:	http://www.kraxel.org/releases/amtterm/%{name}-%{version}.tar.gz
 # Source0-md5:	a2385b2305680ae06687867527924ff5
+Patch0:		amtterm-reconnect-hack.patch
 URL:		http://www.kraxel.org/blog/linux/amtterm/
 BuildRequires:	gtk+2-devel
 BuildRequires:	pkg-config
@@ -30,6 +31,7 @@ This package contains graphical (gtk) version.
 
 %prep
 %setup -q
+%patch0 -p1
 
 %build
 prefix=%{_prefix} \
