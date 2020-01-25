@@ -1,4 +1,3 @@
-%include	/usr/lib/rpm/macros.perl
 Summary:	Intel AMT serial-over-lan (sol) client
 Summary(pl.UTF-8):	Klient portu szeregowego po sieci (SOL) Intel AMT
 Name:		amtterm
