@@ -41,7 +41,7 @@ Ten pakiet zawiera wersję graficzną (GTK+).
 
 %prep
 %setup -q
-%patch0 -p1
+%patch -P0 -p1
 
 %build
 # note: force LIB= because check is error-prone, e.g. existence of
