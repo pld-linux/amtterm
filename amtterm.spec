@@ -10,7 +10,7 @@ Summary:	Intel AMT serial-over-lan (sol) client
 Summary(pl.UTF-8):	Klient portu szeregowego po sieci (SOL) Intel AMT
 Name:		amtterm
 Version:	1.7
-Release:	1
+Release:	2
 License:	GPL v2
 Group:		Applications/Networking
 Source0:	https://www.kraxel.org/releases/amtterm/%{name}-%{version}.tar.gz
@@ -58,11 +58,11 @@ Ten pakiet zawiera wersję graficzną (GTK+).
 # on 32-bit system
 prefix=%{_prefix} \
 CC="%{__cc}" \
-CFLAGS="%{rpmcflags}" \
-LDFLAGS="%{rpmldflags}" \
-STRIP=" " \
+CFLAGS="%{rpmcflags} %{rpmcppflags}" \
+LDFLAGS="%{rpmldflags} %{rpmcflags}" \
 %{__make} \
 	LIB=%{_lib} \
+	STRIP= \
 	%{?with_gnutls:USE_GNUTLS=1} \
 	%{?with_openssl:USE_OPENSSL=1} \
 	verbose=yes
@@ -71,6 +71,7 @@ STRIP=" " \
 rm -rf $RPM_BUILD_ROOT
 
 %{__make} install \
+	STRIP= \
 	prefix=%{_prefix} \
 	DESTDIR=$RPM_BUILD_ROOT
 
